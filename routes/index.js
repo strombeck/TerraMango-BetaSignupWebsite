@@ -39,16 +39,20 @@ router.post('/%F0%9F%91%BD',function(req,res){
       console.error(err);
       res.end(err);
     } else if (!(validator.isEmail(email))) {
+      res.sendStatus(998, "Bad E-mail");
+        // res.status('488');
+        // res.send('poooop');
+        // res.end('test');
         console.error("E-mail field didn't pass validation: " + email);
-        res.redirect("/?beta-signup=400")
-        res.end(err);
-        return;
-    } else if (state.length > 2){
+        // res.redirect("/?beta-signup=400")
+    } else if (state.length > 2 || state.length == 0 ){
+        res.sendStatus(997, "State is invalid");
         console.error("State field didn't pass validation: " + state);
-        res.redirect("/?beta-signup=401")
-    } else if (phone != 0 && phone != 1){
+        // res.redirect("/?beta-signup=401")
+    } else if (phone != '0' && phone != '1'){
+        res.sendStatus(996, "You have a windows phone, don't you?");
         console.error("Phone field didn't pass validation: " + phone);
-        res.redirect("/?beta-signup=402")
+        // res.redirect("/?beta-signup=402")
     }
     else {
       pg.client.query("INSERT into signup (email, state, phone_type) VALUES ($1, $2, $3 )", [email, state, phone], (err, result) => {

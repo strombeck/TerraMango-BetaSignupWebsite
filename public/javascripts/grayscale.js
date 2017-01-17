@@ -12,9 +12,6 @@ $(document).ready(function(){
     if (url == "/?beta-signup=1"){
         signupForm.addClass('hidden');
     }
-    if (url == "/?beta-signup=400"){
-        console.log("found beta signup = 400")
-    }
     signupForm.submit(function(e){
         var data = signupForm.serialize()
         $.post(this.action, data, function(data){
@@ -22,11 +19,21 @@ $(document).ready(function(){
            itFailed.addClass('hidden');
            introText.addClass('hidden');
            msgSubmit.removeClass('hidden');
-           console.log("Successful - posted to the database")
+           console.log(data);
+           console.log("Successful - posted to the database");
+           console.log(url);
+           if (url == "/?beta-signup=1"){
+            console.log("found beta signup in the success area = 1");
+            }
         })
         .fail(function(response) {
+            console.log('We are failures!!!');
             itFailed.removeClass('hidden');
             console.log(response);
+            console.log(url);
+            if (url == "/?beta-signup=400"){
+            console.log("found beta signup 400 in the failure area");
+            }
             
         });
         e.preventDefault();
