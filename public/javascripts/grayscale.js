@@ -9,11 +9,26 @@ $(document).ready(function(){
     var msgSubmit = $('#msgSubmit');
     var itFailed = $('#itFailed');
     var introText = $('.intro-text1');
-    if (url == "/?beta-signup=1"){
-        signupForm.addClass('hidden');
-    }
-    signupForm.submit(function(e){
+    var goodOrEvil = $('#goodOrEvil');
+    var isMac = navigator.userAgent.indexOf("Macintosh")!=-1; 
+    var browser = (function(){var t=navigator,n=t.userAgent,r=t.appVersion,i=parseFloat(r),s={};
+    s.isOpera=n.indexOf("Opera")>=0?i:undefined,s.isKhtml=r.indexOf("Konqueror")>=0?i:undefined,s.isWebKit=parseFloat(n.split("WebKit/")[1])||undefined,s.isChrome=parseFloat(n.split("Chrome/")[1])||undefined,s.isFirefox=/Firefox[\/\s](\d+\.\d+)/.test(n);
+    var o=Math.max(r.indexOf("WebKit"),r.indexOf("Safari"),0);
+    if(o&&!s.isChrome){s.isSafari=parseFloat(r.split("Version/")[1]);
+    if(!s.isSafari||parseFloat(r.substr(o+7))<=419.3)s.isSafari=2}if(document.all&&!s.isOpera){s.isIE=parseFloat(r.split("MSIE ")[1])||undefined;
+    var u=new RegExp("MSIE ([0-9]{1,}[.0-9]{0,})"),a=-1;
+    u.exec(n)!=null&&(a=parseFloat(RegExp.$1)),s.isIE7=a>=7&&a<8,s.isIE8=a>=8&&a<9}
 
+    return s}());
+
+if (isMac || browser.isSafari) {
+    goodOrEvil.html("<option value=\"\" selected disabled>Good or Evil?</option><option value=\"1\">iPhone</option><option value=\"0\">Android</option>")
+  } 
+  else {
+    goodOrEvil.html("<option value=\"\" selected disabled>Good or Evil?</option><option value=\"0\">Android</option><option value=\"1\">iPhone</option>")
+  }
+
+    signupForm.submit(function(e){
         var data = signupForm.serialize();
         $.post(
            this.action, 
@@ -27,10 +42,6 @@ $(document).ready(function(){
                     msgSubmit.removeClass('hidden');
                     console.log(data);
                     console.log("Successful - posted to the database");
-                    console.log(url);
-                    if (url == "/?beta-signup=1"){
-                        console.log("found beta signup in the success area = 1");
-                    }
                 }
                 else{
                     itFailed.text(data);
@@ -41,10 +52,6 @@ $(document).ready(function(){
             function(data) {
                 itFailed.text(data);
                 itFailed.removeClass('hidden');
-                
-                if (url == "/?beta-signup=400"){
-                    console.log("found beta signup 400 in the failure area");
-                }
         });
         e.preventDefault();
     });

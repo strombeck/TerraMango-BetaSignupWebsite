@@ -23,7 +23,7 @@ if (!(validator.isEmail(email))) {
         res.render('index', {formError: 'Invalid E-mail, check to make sure you entered your correct e-mail or try a different one.', hasError: true});
       } 
       else {
-            res.send("Bad email");
+            res.send("Invalid E-mail, check to make sure you entered your correct e-mail or try a different one.");
             console.error("E-mail field didn't pass validation: " + email);
       }
     } 
