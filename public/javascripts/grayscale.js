@@ -21,12 +21,14 @@ $(document).ready(function(){
 
     return s}());
 
-if (isMac || browser.isSafari) {
-    goodOrEvil.html("<option value=\"\" selected disabled>Good or Evil?</option><option value=\"1\">iPhone</option><option value=\"0\">Android</option>")
-  } 
-  else {
-    goodOrEvil.html("<option value=\"\" selected disabled>Good or Evil?</option><option value=\"0\">Android</option><option value=\"1\">iPhone</option>")
-  }
+    if (isMac || browser.isSafari) {
+        goodOrEvil.html("<option value=\"\" selected disabled>Good or Evil?</option><option value=\"1\">iPhone</option><option value=\"0\">Android</option>")
+    } 
+    else {
+        goodOrEvil.html("<option value=\"\" selected disabled>Good or Evil?</option><option value=\"0\">Android</option><option value=\"1\">iPhone</option>")
+    }
+
+
 
     signupForm.submit(function(e){
         var data = signupForm.serialize();

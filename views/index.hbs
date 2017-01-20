@@ -1,50 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Terra Mango: Location Based Strategy Game for mobile devices.">
-    <meta name="author" content="Breadboard.ai">
-
-    <title>Terra Mango – Conquer the World (beta release will only be Florida)</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-
-    <!-- Theme CSS -->
-    <link href="stylesheets/grayscale.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
     <!-- Intro Header -->
     <header class="intro">
         <div class="intro-body">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
+                    <div id="mobile" class="col-md-12">
                         <div>
                         <h1 class="brand-heading">Terra Mango</h1>
-                        <h2 title="An Augmented Reality Massively Multiplayer Online Location Based Tower Defense Real Time Strategy Game" style="margin-top:-1.5em;">A Location Based Strategy Game</h2>
+                        <h2>A Location Based Strategy Game</h2>
                                 <div class="intro-text1 form-fonts">
-                                Sign-up below to receive an invitation to play the closed beta version of the game when it is released.  We will not spam you, we promise.
+                                Enter your info below to receive an invitation to play the closed beta version of the game.  We will not spam you, we promise.
                                 </div>
                                         <!--Start Signup form-->
                 <form action="/👽" id="signupForm" class="form-horizontal {{#hasSuccess}}hidden{{/hasSuccess}}" role="form" method="post">
@@ -126,14 +90,14 @@
                                 </div>
                         </div>
                         <div class="form-group">
-                                <div class="col-sm-100">
+                                <div>
                                         <!--<input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary btn-100 btn-purple">-->
                                         <button type="submit" id="form-submit" class="btn btn-invite btn-lg blueBorder">Request Invite to the Super Private Beta</button>
                                 </div>
                         </div>
                 </form>
                 <div class="h3 text-center transBlackOverlay form-fonts {{^hasSuccess}}hidden{{/hasSuccess}}" id="msgSubmit">
-                Thank you for signing up! We will let you know if you get picked for the super exclusive closed beta!
+                Will you be selected? Maybe. We'll let you know if you get picked for the super exclusive closed beta!
                 </div>
                 <div class="h4 text-center fontRed form-fonts {{^hasError}}hidden{{/hasError}}" id="itFailed">
                     {{#hasError}}
@@ -146,8 +110,8 @@
                
                 </div>
                 <!--End Signup form-->
-                            <div class="col-sm-7 developedByDiv">
-                                    <p class="developedBy form-fonts">Developed by </p><a href="https://breadboard.ai"><img class="imgPadding" src="./images/breadboard.png" width="320px" height="132px" onmouseover="this.src='./images/breadboardcolor.png';" onmouseout="this.src='./images/breadboard.png';"></a>
+                            <div class="col-md-12">
+                                    <p class="developedBy form-fonts">Developed by </p><a href="https://breadboard.ai"><img class="imgPadding" src="./images/bb-logo-1x.png" srcset="./images/bb-logo-1x.png 1x, ./images/bb-logo-2x.png 2x" width="304px" height="64px"></a>
                             </div>
                         </div>
 
@@ -166,13 +130,3 @@
     <!--        <p>Copyright © Breadboard 2016</p>-->
     <!--    </div>-->
     <!--</footer>-->
-
-    <!-- Bootstrap Core JavaScript -->
-    <!--<script src="vendor/bootstrap/js/bootstrap.min.js"></script>-->
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <!-- Theme JavaScript -->
-    <script src="javascripts/grayscale.js"></script>
-</body>
-
-</html>
