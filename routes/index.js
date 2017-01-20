@@ -16,7 +16,7 @@ router.get('/%F0%9F%91%BD', function(req, res){
 router.post('/%F0%9F%91%BD',function(req,res){
 	var email=req.body.email;
 	var state=req.body.state;
-	var phone=req.body.phone;
+	var phone=req.body.phone_type;
 	var headers = req.headers;
 	var jsEnabled = headers["x-requested-with"] === "XMLHttpRequest";
 
