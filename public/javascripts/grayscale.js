@@ -32,6 +32,7 @@ $(document).ready(function(){
 
     signupForm.submit(function(e){
         var data = signupForm.serialize();
+        signupForm.find("button").disable();
         $.post(
            this.action, 
            data, 
@@ -48,8 +49,8 @@ $(document).ready(function(){
                 }
            }
         ).fail(
-            function(data) {
-                itFailed.text(data);
+            function(jqXHR, textStatus, errorThrown) {
+                itFailed.text(errorThrown);
                 itFailed.removeClass('hidden');
         });
         e.preventDefault();

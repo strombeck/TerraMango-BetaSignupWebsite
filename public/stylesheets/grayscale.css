@@ -293,7 +293,6 @@ html {
   background: black url(../images/space-2x.jpg) no-repeat bottom center fixed;
   background-image:-webkit-image-set(url(../images/space-1x.jpg) 1x, url(../images/space-2x.jpg) 3x, url(../images/space-3x.jpg) 4x);
   background-size: cover;
-  transition: all .5s ease-in;
 }
 
 
