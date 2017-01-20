@@ -36,16 +36,13 @@ $(document).ready(function(){
            this.action, 
            data, 
            function(data){//success
-               console.log(data);
                 if(data == "Success"){
                     signupForm.addClass('hidden');
                     itFailed.addClass('hidden');
                     introText.addClass('hidden');
                     msgSubmit.removeClass('hidden');
-                    console.log(data);
-                    console.log("Successful - posted to the database");
                 }
-                else{
+                else {
                     itFailed.text(data);
                     itFailed.removeClass('hidden');
                 }
