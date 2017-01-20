@@ -29,10 +29,10 @@ $(document).ready(function(){
     }
 
 
-
+    var buttons = signupForm.find("button");
     signupForm.submit(function(e){
         var data = signupForm.serialize();
-        signupForm.find("button").disable();
+        buttons.prop("disabled", true);
         $.post(
            this.action, 
            data, 
@@ -52,7 +52,9 @@ $(document).ready(function(){
             function(jqXHR, textStatus, errorThrown) {
                 itFailed.text(errorThrown);
                 itFailed.removeClass('hidden');
-        });
+        }).always(function(){
+            buttons.prop("disabled", false);
+        })
         e.preventDefault();
     });
 });
