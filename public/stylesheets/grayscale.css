@@ -112,13 +112,14 @@ a:focus {
   font-weight: 400;
 }
 .intro-text1 {
-    /*background-color: rgba(75, 165, 237, 0.17);*/
-    text-shadow: 0px 1px 2px rgba(150, 150, 150, 1);
     margin-bottom: 2em;
     font-size:20px;
     max-width:800px;
     margin-left:auto;
     margin-right:auto;
+}
+.intro-text1, h2 {
+  text-shadow: 0px 1px 2px rgba(150, 150, 150, 1);
 }
 .intro {
   display: table;
@@ -219,7 +220,9 @@ a:focus {
   padding-bottom: 1em;
 }
 .imgPadding {
-    margin-bottom: 1em; 
+    margin-bottom: 1em;
+    height:auto;
+    max-width:100%;
     filter: hue-rotate(360deg) saturate(0%) brightness(200%);    
 }
 .imgPadding:hover {
@@ -356,6 +359,9 @@ html {
     vertical-align: middle;
     width: 99.999999999%;
     padding-bottom: 2.5em;
+    position:relative;
+    /* the 99.99999% above fixes */
+    left:-2px;
 }
 
 .col-md-offset-3{
