@@ -76,31 +76,6 @@ a:focus {
   text-decoration: none;
   color: #1d9b6c;
 }
-/*@media (max-width:500px) {
-  #mobile {
-    max-width:95%;
-    /*padding-left:1em;
-    padding-right:1em;* /
-  }
-  #formSubmit {
-    max-width:80%;
-    font-size:50%;
-  }
-  .btn-lg {
-    font-size: 13px;
-  }
-  .row {
-    margin-left:0px;
-    margin-right:0px;
-  }
-  .intro {
-    padding: 40px 0;
-  }
-  /*.container {
-    padding-right:5px;
-    padding-left:20px;
-  }* /
-}*/
 
 .form-fonts {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
