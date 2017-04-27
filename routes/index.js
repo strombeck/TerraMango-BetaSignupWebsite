@@ -1,17 +1,20 @@
 "use strict";
 
+
 var express = require('express');
 var getConnection = require('../bin/get-connection.js');
 var router = express.Router();
 var validator = require('validator');
+var postmark = require("postmark");
+var pmClient = new postmark.Client(process.env.POSTMARK_KEY);
 
 router.get("/", function(req, res){
 	res.render("index", {formErorr: null});
-})
+});
 
 router.get('/%F0%9F%91%BD', function(req, res){
 	res.render("index");
-})
+});
 
 router.post('/%F0%9F%91%BD',function(req,res){
 	var email=req.body.email;
@@ -19,7 +22,6 @@ router.post('/%F0%9F%91%BD',function(req,res){
 	var phone=req.body.phone_type;
 	var headers = req.headers;
 	var jsEnabled = headers["x-requested-with"] === "XMLHttpRequest";
-
 
 	if (!(validator.isEmail(email))) {
 		if (!jsEnabled) {
@@ -68,12 +70,31 @@ router.post('/%F0%9F%91%BD',function(req,res){
 				} 
 				else {
 					console.log("Made it to the database");
-					if (!jsEnabled) {
-						res.render('index', {success: 'WooHoo! Form submitted', hasSuccess: true});
-					} 
-					else {
-						res.send("Success"); 
-					}
+					pmClient.sendEmailWithTemplate({
+						"From": "beta@terramango.com",
+						"TemplateId": 1604921,
+						"To": email,
+						"TemplateModel": {},
+						"InlineCss": true
+					},function(error, result) {
+						if(error){
+							console.log(error);
+							if (!jsEnabled) {
+								res.render('index', {formError: 'We\'re having server problems, please try again in a few minutes', hasError: true});
+							} 
+							else {
+								res.send("We\'re having server issues, please try again in a few minutes.");
+							}
+						}
+						else{
+							if (!jsEnabled) {
+								res.render('index', {success: 'WooHoo! Form submitted and email sent', hasSuccess: true});
+							} 
+							else {
+								res.send("Success"); 
+							}
+						}
+					});
 				}
 			});
 		});
