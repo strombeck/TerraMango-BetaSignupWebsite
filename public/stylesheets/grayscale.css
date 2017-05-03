@@ -4,9 +4,19 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
  #about{
-   padding-top:2em;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size:16px;
+ }
+ hr{
+   margin:90px 0px;
+ }
+ .description{
+   margin-bottom:90px;
+ }
+ @media(min-width:1200px){
+  .offset{
+    margin-left:20.83%;
+  }
  }
 #about ul{
   padding-bottom:90px;
