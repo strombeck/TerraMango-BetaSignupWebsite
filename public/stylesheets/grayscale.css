@@ -3,6 +3,33 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+ #about{
+   padding-top:2em;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:16px;
+ }
+#about ul{
+  padding-bottom:90px;
+  line-height:30px;
+}
+.about-container{
+  text-align:left;
+  width: 90%;
+  padding-left: 10%;
+}
+.about-container div:last-child{
+  font-weight:bold;
+  line-height:30px;
+}
+.character-banner{
+  width:100%;
+  max-width:1200px;
+  max-height:454px;
+  margin-bottom:90px;
+}
+.content-section {
+  padding-top: 100px;
+}
 body {
   width: 100%;
   height: 100%;
@@ -317,7 +344,7 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    margin-top: 2.5em;
+    margin-top: 7.5em;
 }
 
 .container:before {
