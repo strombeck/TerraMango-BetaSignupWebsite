@@ -66,8 +66,18 @@ router.post('/%F0%9F%91%BD',function(req,res) {
 				console.error(err);
 				res.end(err);
 			}
-			console.log('Made it to server')
-				pg.client.query("INSERT into signup (email, state, phone_type) VALUES ($1, $2, $3)", [email, state, phone], (err, result) => {
+			console.log('Made it to server');
+			var insertString = "";
+			var insertVariables = [];
+			if(zip.length > 0) {
+				insertString = "INSERT into signup (email, state, phone_type, zip) VALUES ($1, $2, $3, $4)";
+				insertVariables = [email, state, phone, zip];
+			}
+			else {
+				insertString = "INSERT into signup (email, state, phone_type) VALUES ($1, $2, $3)";
+				insertVariables = [email, state, phone];
+			}
+			pg.client.query(insertString, insertVariables, (err, result) => {
 				pg.done();
 				if (err) {
 					console.error(err);
