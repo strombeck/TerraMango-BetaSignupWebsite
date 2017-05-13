@@ -28,6 +28,24 @@ $(document).ready(function(){
         goodOrEvil.html("<option value=\"\" selected disabled>Good or Evil?</option><option value=\"0\">Android</option><option value=\"1\">iPhone</option>")
     }
 
+    var stateinput = $("#state")
+    var state = stateinput.closest(".form-group");
+    var zip = $("#zip").closest(".form-group");
+    var country = $("#country");
+    updateState();
+    function updateState(){
+        if( country.val() === "US - United States"){
+            stateinput.prop("required", true);
+            state.show();
+            zip.show();
+        }
+        else {
+            stateinput.prop("required", false);
+            state.hide();
+            zip.hide();
+        }
+    }
+    country.on("change", updateState);
 
     var buttons = signupForm.find("button");
     signupForm.submit(function(e){
@@ -44,13 +62,13 @@ $(document).ready(function(){
                     msgSubmit.removeClass('hidden');
                 }
                 else {
-                    itFailed.text(data);
+                    itFailed.html(data);
                     itFailed.removeClass('hidden');
                 }
            }
         ).fail(
             function(jqXHR, textStatus, errorThrown) {
-                itFailed.text(errorThrown);
+                itFailed.html(errorThrown);
                 itFailed.removeClass('hidden');
         }).always(function(){
             buttons.prop("disabled", false);

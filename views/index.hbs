@@ -5,7 +5,7 @@
 			<div class="row">
 				<div id="mobile" class="col-md-12">
 					<div>
-						<img src="./images/icon.png" width="200" hegith="200">
+						<img src="/images/icon.png" width="200" hegith="200">
 						<h1 class="brand-heading">Terra Mango</h1>
 						<h2>A Location Based Strategy Game</h2>
 						<div class="intro-text1 form-fonts {{#hasSuccess}}hidden{{/hasSuccess}}">
@@ -15,13 +15,273 @@
 						<form action="/👽" id="signupForm" class="form-horizontal {{#hasSuccess}}hidden{{/hasSuccess}}" role="form" method="post">
 							
 							<div class="form-group">
+								<input type="hidden" value="{{referrer}}" name="ref">
 								<div class="col-sm-6 col-md-offset-3">
 									<input type="email" class="form-control form-fonts blueBorder" id="email" name="email" placeholder="example@domain.com" value="" required>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-6 col-md-offset-3">
-									<select name="state" class="form-control form-fonts blueBorder" required>
+									<select id="country" name="country" class="form-control form-fonts blueBorder" required>
+										<option value="" selected disabled>What country do you live in?</option>
+										<option>US - United States</option>
+										<option>GB - United Kingdom</option>
+										<option>AD - Andorra</option>
+										<option>AE - United Arab Emirates</option>
+										<option>AF - Afghanistan</option>
+										<option>AG - Antigua and Barbuda</option>
+										<option>AI - Anguilla</option>
+										<option>AL - Albania</option>
+										<option>AM - Armenia</option>
+										<option>AO - Angola</option>
+										<option>AQ - Antarctica</option>
+										<option>AR - Argentina</option>
+										<option>AS - American Samoa</option>
+										<option>AT - Austria</option>
+										<option>AU - Australia</option>
+										<option>AW - Aruba</option>
+										<option>AZ - Azerbaijan</option>
+										<option>BA - Bosnia and Herzegovina</option>
+										<option>BB - Barbados</option>
+										<option>BD - Bangladesh</option>
+										<option>BE - Belgium</option>
+										<option>BF - Burkina Faso</option>
+										<option>BG - Bulgaria</option>
+										<option>BH - Bahrain</option>
+										<option>BI - Burundi</option>
+										<option>BJ - Benin</option>
+										<option>BL - Saint Barthelemy</option>
+										<option>BM - Bermuda</option>
+										<option>BN - Brunei</option>
+										<option>BO - Bolivia</option>
+										<option>BR - Brazil</option>
+										<option>BS - Bahamas, The</option>
+										<option>BT - Bhutan</option>
+										<option>BV - Bouvet Island</option>
+										<option>BW - Botswana</option>
+										<option>BY - Belarus</option>
+										<option>BZ - Belize</option>
+										<option>CA - Canada</option>
+										<option>CC - Cocos (Keeling) Islands</option>
+										<option>CD - Congo, Democratic Republic of the</option>
+										<option>CF - Central African Republic</option>
+										<option>CG - Congo, Republic of the</option>
+										<option>CH - Switzerland</option>
+										<option>CI - Cote d'Ivoire</option>
+										<option>CK - Cook Islands</option>
+										<option>CL - Chile</option>
+										<option>CM - Cameroon</option>
+										<option>CN - China</option>
+										<option>CO - Colombia</option>
+										<option>CR - Costa Rica</option>
+										<option>CU - Cuba</option>
+										<option>CV - Cape Verde</option>
+										<option>CW - Curacao</option>
+										<option>CX - Christmas Island</option>
+										<option>CY - Cyprus</option>
+										<option>CZ - Czech Republic</option>
+										<option>DE - Germany</option>
+										<option>DJ - Djibouti</option>
+										<option>DK - Denmark</option>
+										<option>DM - Dominica</option>
+										<option>DO - Dominican Republic</option>
+										<option>DZ - Algeria</option>
+										<option>EC - Ecuador</option>
+										<option>EE - Estonia</option>
+										<option>EG - Egypt</option>
+										<option>EH - Western Sahara</option>
+										<option>ER - Eritrea</option>
+										<option>ES - Spain</option>
+										<option>ET - Ethiopia</option>
+										<option>FI - Finland</option>
+										<option>FJ - Fiji</option>
+										<option>FK - Falkland Islands (Islas Malvinas)</option>
+										<option>FM - Micronesia, Federated States of</option>
+										<option>FO - Faroe Islands</option>
+										<option>FR - France</option>
+										<option>FX - France, Metropolitan</option>
+										<option>GA - Gabon</option>
+										<option>GB - United Kingdom</option>
+										<option>GD - Grenada</option>
+										<option>GE - Georgia</option>
+										<option>GF - French Guiana</option>
+										<option>GG - Guernsey</option>
+										<option>GH - Ghana</option>
+										<option>GI - Gibraltar</option>
+										<option>GL - Greenland</option>
+										<option>GM - Gambia, The</option>
+										<option>GN - Guinea</option>
+										<option>GP - Guadeloupe</option>
+										<option>GQ - Equatorial Guinea</option>
+										<option>GR - Greece</option>
+										<option>GS - South Georgia and the Islands</option>
+										<option>GT - Guatemala</option>
+										<option>GU - Guam</option>
+										<option>GW - Guinea-Bissau</option>
+										<option>GY - Guyana</option>
+										<option>HK - Hong Kong</option>
+										<option>HM - Heard Island and McDonald Islands</option>
+										<option>HN - Honduras</option>
+										<option>HR - Croatia</option>
+										<option>HT - Haiti</option>
+										<option>HU - Hungary</option>
+										<option>ID - Indonesia</option>
+										<option>IE - Ireland</option>
+										<option>IL - Israel</option>
+										<option>IM - Isle of Man</option>
+										<option>IN - India</option>
+										<option>IO - British Indian Ocean Territory</option>
+										<option>IQ - Iraq</option>
+										<option>IR - Iran</option>
+										<option>IS - Iceland</option>
+										<option>IT - Italy</option>
+										<option>JE - Jersey</option>
+										<option>JM - Jamaica</option>
+										<option>JO - Jordan</option>
+										<option>JP - Japan</option>
+										<option>KE - Kenya</option>
+										<option>KG - Kyrgyzstan</option>
+										<option>KH - Cambodia</option>
+										<option>KI - Kiribati</option>
+										<option>KM - Comoros</option>
+										<option>KN - Saint Kitts and Nevis</option>
+										<option>KP - Korea, North</option>
+										<option>KR - Korea, South</option>
+										<option>KW - Kuwait</option>
+										<option>KY - Cayman Islands</option>
+										<option>KZ - Kazakhstan</option>
+										<option>LA - Laos</option>
+										<option>LB - Lebanon</option>
+										<option>LC - Saint Lucia</option>
+										<option>LI - Liechtenstein</option>
+										<option>LK - Sri Lanka</option>
+										<option>LR - Liberia</option>
+										<option>LS - Lesotho</option>
+										<option>LT - Lithuania</option>
+										<option>LU - Luxembourg</option>
+										<option>LV - Latvia</option>
+										<option>LY - Libya</option>
+										<option>MA - Morocco</option>
+										<option>MC - Monaco</option>
+										<option>MD - Moldova</option>
+										<option>ME - Montenegro</option>
+										<option>MF - Saint Martin</option>
+										<option>MG - Madagascar</option>
+										<option>MH - Marshall Islands</option>
+										<option>MK - Macedonia</option>
+										<option>ML - Mali</option>
+										<option>MM - Burma</option>
+										<option>MN - Mongolia</option>
+										<option>MO - Macau</option>
+										<option>MP - Northern Mariana Islands</option>
+										<option>MQ - Martinique</option>
+										<option>MR - Mauritania</option>
+										<option>MS - Montserrat</option>
+										<option>MT - Malta</option>
+										<option>MU - Mauritius</option>
+										<option>MV - Maldives</option>
+										<option>MW - Malawi</option>
+										<option>MX - Mexico</option>
+										<option>MY - Malaysia</option>
+										<option>MZ - Mozambique</option>
+										<option>NA - Namibia</option>
+										<option>NC - New Caledonia</option>
+										<option>NE - Niger</option>
+										<option>NF - Norfolk Island</option>
+										<option>NG - Nigeria</option>
+										<option>NI - Nicaragua</option>
+										<option>NL - Netherlands</option>
+										<option>NO - Norway</option>
+										<option>NP - Nepal</option>
+										<option>NR - Nauru</option>
+										<option>NU - Niue</option>
+										<option>NZ - New Zealand</option>
+										<option>OM - Oman</option>
+										<option>PA - Panama</option>
+										<option>PE - Peru</option>
+										<option>PF - French Polynesia</option>
+										<option>PG - Papua New Guinea</option>
+										<option>PH - Philippines</option>
+										<option>PK - Pakistan</option>
+										<option>PL - Poland</option>
+										<option>PM - Saint Pierre and Miquelon</option>
+										<option>PN - Pitcairn Islands</option>
+										<option>PR - Puerto Rico</option>
+										<option>PS - Gaza Strip</option>
+										<option>PS - West Bank</option>
+										<option>PT - Portugal</option>
+										<option>PW - Palau</option>
+										<option>PY - Paraguay</option>
+										<option>QA - Qatar</option>
+										<option>RE - Reunion</option>
+										<option>RO - Romania</option>
+										<option>RS - Serbia</option>
+										<option>RU - Russia</option>
+										<option>RW - Rwanda</option>
+										<option>SA - Saudi Arabia</option>
+										<option>SB - Solomon Islands</option>
+										<option>SC - Seychelles</option>
+										<option>SD - Sudan</option>
+										<option>SE - Sweden</option>
+										<option>SG - Singapore</option>
+										<option>SH - Saint Helena, Ascension, and Tristan da Cunha</option>
+										<option>SI - Slovenia</option>
+										<option>SJ - Svalbard</option>
+										<option>SK - Slovakia</option>
+										<option>SL - Sierra Leone</option>
+										<option>SM - San Marino</option>
+										<option>SN - Senegal</option>
+										<option>SO - Somalia</option>
+										<option>SR - Suriname</option>
+										<option>SS - South Sudan</option>
+										<option>ST - Sao Tome and Principe</option>
+										<option>SV - El Salvador</option>
+										<option>SX - Sint Maarten</option>
+										<option>SY - Syria</option>
+										<option>SZ - Swaziland</option>
+										<option>TC - Turks and Caicos Islands</option>
+										<option>TD - Chad</option>
+										<option>TF - French Southern and Antarctic Lands</option>
+										<option>TG - Togo</option>
+										<option>TH - Thailand</option>
+										<option>TJ - Tajikistan</option>
+										<option>TK - Tokelau</option>
+										<option>TL - Timor-Leste</option>
+										<option>TM - Turkmenistan</option>
+										<option>TN - Tunisia</option>
+										<option>TO - Tonga</option>
+										<option>TR - Turkey</option>
+										<option>TT - Trinidad and Tobago</option>
+										<option>TV - Tuvalu</option>
+										<option>TW - Taiwan</option>
+										<option>TZ - Tanzania</option>
+										<option>UA - Ukraine</option>
+										<option>UG - Uganda</option>
+										<option>UM - United States Minor Outlying Islands</option>
+										<option>US - United States</option>
+										<option>UY - Uruguay</option>
+										<option>UZ - Uzbekistan</option>
+										<option>VA - Holy See (Vatican City)</option>
+										<option>VC - Saint Vincent and the Grenadines</option>
+										<option>VE - Venezuela</option>
+										<option>VG - British Virgin Islands</option>
+										<option>VI - Virgin Islands</option>
+										<option>VN - Vietnam</option>
+										<option>VU - Vanuatu</option>
+										<option>WF - Wallis and Futuna</option>
+										<option>WS - Samoa</option>
+										<option>XK - Kosovo</option>
+										<option>YE - Yemen</option>
+										<option>YT - Mayotte</option>
+										<option>ZA - South Africa</option>
+										<option>ZM - Zambia</option>
+										<option>ZW - Zimbabwe</option>
+									<select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-6 col-md-offset-3">
+									<select id="state" name="state" class="form-control form-fonts blueBorder" required>
 										<option value="" selected disabled>What state do you live in?</option>
 										<option value="AL">Alabama</option>
 										<option value="AK">Alaska</option>
@@ -100,16 +360,16 @@
 						</form>
 						<div class="h3 text-center transBlackOverlay form-fonts {{^hasSuccess}}hidden{{/hasSuccess}}" id="msgSubmit">
 							Will you be selected? Maybe. We'll let you know if you get picked for the super exclusive closed beta!
+							<a style="font-size:16px;padding-top: 1em;display: block;color: #80a3c5;text-decoration: underline;" href="/">Back to the home page</a>
 						</div>
 						<div class="h4 text-center fontRed form-fonts {{^hasError}}hidden{{/hasError}}" id="itFailed">
 							{{#hasError}}
-								{{formError}}
+								{{{formError}}}
 							{{/hasError}}
 							{{^hasError}}
 								Could not establish a connection with the server. Please try again later. <br>
-								Click the twitter birdie to tweet this to us! <a href="https://twitter.com/intent/tweet?text=Hey%2C%20%40TerraMango%21%20I%27m%20having%20an%20issue%20signing%20up%20for%20the%20beta%21%20Error%20code%2000000010101010000000000%2C%20oh%20no%21&amp;source=clicktotweet&amp;related=clicktotweet" target="_blank"><img src="./images/twitter.png" width="60px" height="60px"></a>
+								Click the Twitter birdie to tweet this to us! <a href="https://twitter.com/intent/tweet?text=Hey%2C%20%40TerraMango%21%20I%27m%20having%20an%20issue%20signing%20up%20for%20the%20beta%21%20Error%20code%2000000010101010000000000%2C%20oh%20no%21&amp;source=clicktotweet&amp;related=clicktotweet" target="_blank"><img src="/images/twitter.png" width="60px" height="60px"></a>
 							{{/hasError}}
-					
 						</div>
 
 						<div id="about" class="col-lg-7 offset">
@@ -122,16 +382,16 @@
 									<li>Choose your race. Are you a Human, an IO, or an Aurayu?</li>
 									<li>Build combat, research, and resource towers to claim real world territory for your race and to grow your empire.</li>
 									<li>Deploy troops in the real world to destroy and conquer enemy territory.</li>
-									<li>Collect gold, ore, energy and IPG in the real world.</li>
+									<li>Collect gold, ore, energy, and IPG in the real world.</li>
 									<li>Did we mention it’s in the real world?</li>
 									<li>Team up with other players to defeat your enemies together.</li>
 									<li>Earn XP and level up to expand available tower and troop types.</li>
 								</ul>
 							</div>
 						</div>
-						<img src="./images/characters.jpg" class="character-banner">
+						<img src="/images/characters.jpg" class="character-banner">
 						<div class="col-md-12">
-							<p class="developedBy form-fonts">Developed by </p><a href="https://breadboard.ai"><img class="imgPadding" src="./images/bb-logo-1x.png" srcset="./images/bb-logo-1x.png 1x, ./images/bb-logo-2x.png 2x" width="304px" height="64px"></a>
+							<p class="developedBy form-fonts">Developed by </p><a href="https://breadboard.ai"><img class="imgPadding" src="/images/bb-logo-1x.png" srcset="/images/bb-logo-1x.png 1x, /images/bb-logo-2x.png 2x" width="304px" height="64px"></a>
 						</div>
 					</div>
 				</div>
