@@ -17,10 +17,10 @@ function encodeId(id){
 	}
 }
 function decodePrivate(ref) {
-	return +Base62.decode(ref)/4135724491328845;
+	return Math.round(+Base62.decode(ref)/4135724491328845);
 }
 function decodePublic(ref) {
-	return +Base62.decode(ref) / 1111;
+	return Math.round(+Base62.decode(ref) / 1111);
 }
 
 router.get("/R:ref", function(req, res, next) {
