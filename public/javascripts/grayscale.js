@@ -28,7 +28,7 @@ $(document).ready(function(){
         goodOrEvil.html("<option value=\"\" selected disabled>Good or Evil?</option><option value=\"0\">Android</option><option value=\"1\">iPhone</option>")
     }
 
-    var stateinput = $("#state")
+    var stateinput = $("#state");
     var state = stateinput.closest(".form-group");
     var zip = $("#zip").closest(".form-group");
     var country = $("#country");
@@ -46,6 +46,10 @@ $(document).ready(function(){
         }
     }
     country.on("change", updateState);
+
+    var email = $("#email").keyup(function(){
+        email.attr("type", this.value.indexOf("@") !== -1 ? "url" : "email");
+    });
 
     var buttons = signupForm.find("button");
     signupForm.submit(function(e){

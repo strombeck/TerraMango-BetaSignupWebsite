@@ -13,8 +13,8 @@ var validCountryCodes = "AD,AE,AF,AG,AI,AL,AM,AO,AQ,AR,AS,AT,AU,AW,AZ,BA,BB,BD,B
 function encodeId(id){
 	return {
 		"public": Base62.encode(+id * 1111),
-		"private": Base62.encode(+id * 4135724491328845),
-	}
+		"private": Base62.encode(+id * 4135724491328845)
+	};
 }
 function decodePrivate(ref) {
 	return Math.round(Base62.decode(ref) / 4135724491328845);
