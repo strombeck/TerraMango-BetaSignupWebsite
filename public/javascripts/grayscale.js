@@ -47,10 +47,6 @@ $(document).ready(function(){
     }
     country.on("change", updateState);
 
-    var email = $("#email").keyup(function(){
-        email.attr("type", this.value.indexOf("@") !== -1 ? "url" : "email");
-    });
-
     var buttons = signupForm.find("button");
     signupForm.submit(function(e){
         var data = signupForm.serialize();
