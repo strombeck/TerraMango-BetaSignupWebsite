@@ -107,7 +107,7 @@ router.post('/%F0%9F%91%BD',function(req,res) {
 		return;
 	}
 	var isUSA = country === "US";
-
+	email = email ? email.trim() : email;
 	if (!(validator.isEmail(email))) {
 		if (!jsEnabled) {
 			res.render('index', {formError: 'Invalid E-mail, check to make sure you entered your correct e-mail or try a different one.', hasError: true});
@@ -150,6 +150,7 @@ router.post('/%F0%9F%91%BD',function(req,res) {
 				console.error(err);
 				res.end(err);
 			}
+			email = email.replace(/\.con$/i, ".com");
 			console.log('Made it to server');
 			var insertString = "";
 			var insertVariables = [];
