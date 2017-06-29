@@ -85,14 +85,24 @@ router.get("/referrals/:ref", function(req, res){
 })
 
 router.get('/%F0%9F%91%BD', function(req, res) {
-	res.render("index");
+	let currentTime = new Date( new Date().getTime() + desiredTimezoneOffset * 3600 * 1000);
+
+	let showKickstarterLink = currentTime >= dateToAddKickstarterLink;
+	if(currentTime >= dateToCloseBetaSignup) {
+		res.render("index_closed_signup", {"showKickstarterLink": showKickstarterLink});
+	}
+	else {
+		res.render("index", {formError: null});
+	}
 });
 
 router.post('/%F0%9F%91%BD',function(req,res) {
 	let currentTime = new Date( new Date().getTime() + desiredTimezoneOffset * 3600 * 1000);
 
+	let showKickstarterLink = currentTime >= dateToAddKickstarterLink;
 	if(currentTime >= dateToCloseBetaSignup) {
 		res.render("index_closed_signup", {"showKickstarterLink": showKickstarterLink});
+		return;
 	}
 
 	var email = req.body.email;
