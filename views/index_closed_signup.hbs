@@ -1,0 +1,49 @@
+{{!--Intro Header--}}
+<header class="intro">
+	<div class="intro-body">
+		<div class="container">
+			<div class="row">
+				<div id="mobile" class="col-md-12">
+					<div>
+						<img src="/images/icon.png" width="200" hegith="200">
+						<h1 class="brand-heading">Terra Mango</h1>
+						<h2>A Location Based Strategy Game</h2>
+
+						<div>
+							{{#ifCond showKickstarterLink "===" true}}
+								<a href="https://www.kickstarter.com/projects/155025827/526847832?token=2558a4b5" class="kickstarter"><img class="kickstarter-image" src="/images/kickstarter-live.png" alt="Kickstarter"></a>
+							{{/ifCond}}
+							{{#ifCond showKickstarterLink "===" false}}
+								<img class="kickstarter-image" src="/images/kickstarter.png" alt="Kickstarter"></a>
+							{{/ifCond}}
+						</div>
+
+						<iframe class="youtube-video" src="https://www.youtube.com/embed/Ol7AtQJwLm4" frameborder="0" allowfullscreen></iframe>
+
+						<div id="about" class="col-lg-7 offset">
+							<hr/>
+							<h2>About Terra Mango</h2>
+							<div class="about-container">
+								<div class="description">Will you defend your race from the intrusion of your enemies as a Human? Will you exact revenge on your creators as the IO? Or will you conquer the blue marble for the honor of the Aurayu? Collect resources, conquer enemy territory, and build towers to ensure victory for your race. Be the first to claim your neighborhood, town, and city!</div>
+								<div style="font-weight:bold">FEATURES</div>
+								<ul>
+									<li>Choose your race. Are you a Human, an IO, or an Aurayu?</li>
+									<li>Build combat, research, and resource towers to claim real world territory for your race and to grow your empire.</li>
+									<li>Deploy troops in the real world to destroy and conquer enemy territory.</li>
+									<li>Collect gold, ore, energy, and IPG in the real world.</li>
+									<li>Did we mention it’s in the real world?</li>
+									<li>Team up with other players to defeat your enemies together.</li>
+									<li>Earn XP and level up to expand available tower and troop types.</li>
+								</ul>
+							</div>
+						</div>
+						<img src="/images/characters.jpg" class="character-banner">
+						<div class="col-md-12">
+							<p class="developedBy form-fonts">Developed by </p><a href="https://breadboard.ai"><img class="imgPadding" src="/images/bb-logo-1x.png" srcset="/images/bb-logo-1x.png 1x, /images/bb-logo-2x.png 2x" width="304px" height="64px"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
