@@ -21,11 +21,13 @@ $(document).ready(function(){
 
     return s}());
 
-    if (isMac || browser.isSafari) {
-        goodOrEvil.html("<option value=\"\" selected disabled>Good or Evil?</option><option value=\"1\">iPhone</option><option value=\"0\">Android</option>")
-    } 
-    else {
-        goodOrEvil.html("<option value=\"\" selected disabled>Good or Evil?</option><option value=\"0\">Android</option><option value=\"1\">iPhone</option>")
+    if (typeof goodOrEvil !== "undefined") {
+        if (isMac || browser.isSafari) {
+            goodOrEvil.html("<option value=\"\" selected disabled>Good or Evil?</option><option value=\"1\">iPhone</option><option value=\"0\">Android</option>")
+        } 
+        else {
+            goodOrEvil.html("<option value=\"\" selected disabled>Good or Evil?</option><option value=\"0\">Android</option><option value=\"1\">iPhone</option>")
+        }
     }
 
     var stateinput = $("#state")
@@ -76,3 +78,34 @@ $(document).ready(function(){
         e.preventDefault();
     });
 });
+
+const submitUpdate = () => {
+    let data = {"email": existing_board_name, "phone_type": reference_card_name, "ref": new_board_name, "year": year};
+    $.ajax({
+        "type": "POST",
+        "contentType": "application/json; charset=utf-8",
+        "url": "/update",
+        "data": JSON.stringify(data),
+        "success": (data, textStatus, jqXHR) => {
+            if (data === "Success") {
+                // do something
+                $("#itFailed").removeClass("hidden");
+                $("#itFailed").removeClass("fontRed");
+                $("#itFailed").addClass("fontGreen");
+                $("#itFailed").text("Update Successful. Look out for another email once we process your update (1-2 business days).");
+            }
+            else {
+                $("#itFailed").removeClass("hidden");
+                $("#itFailed").removeClass("fontGreen");
+                $("#itFailed").addClass("fontRed");
+                $("#itFailed").text("There were some issues with updating your information. Please try again later. If this continues to happen, please contact us at beta@terramango.com");
+            }
+        },
+        "error": function(jqXHR, textStatus, errorThrown) {
+            $("#itFailed").removeClass("hidden");
+            $("#itFailed").removeClass("fontGreen");
+            $("#itFailed").addClass("fontRed");
+            $("#itFailed").text("There were some issues with updating your information. Please try again later. If this continues to happen, please contact us at beta@terramango.com");
+        }
+    });
+}

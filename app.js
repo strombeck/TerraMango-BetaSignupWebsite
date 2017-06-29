@@ -1,4 +1,5 @@
 var express = require('express');
+var hbs = require('hbs');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -9,6 +10,20 @@ var index = require('./routes/index');
 
 var app = express();
 
+hbs.registerHelper('ifCond', function(v1, operator, v2, options) {
+  switch (operator) {
+    case "==":
+      return (v1 == v2) ? options.fn(this) : options.inverse(this);
+    case "===":
+      return (v1 === v2) ? options.fn(this) : options.inverse(this);
+    case "!=":
+      return (v1 != v2) ? options.fn(this) : options.inverse(this);
+    case "!==":
+      return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+    default:
+      return options.inverse(this);
+  }
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

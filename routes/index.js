@@ -28,6 +28,47 @@ router.get("/R:ref", function(req, res, next) {
 	res.render("index", {formError: null, referrer: ref});
 });
 
+router.get("/U:ref", function(req, res, next) {
+	var ref = req.params.ref;
+	var id = decodePrivate(ref);
+
+	const queryText = "SELECT email, phone_type FROM signup WHERE id=$1";
+	const queryValues = [id];
+
+	pg.client.query(queryText, queryValues, (err, result) => {
+		if (err || result.rows.length == 0) {
+			console.error(err);
+			res.render("update", {"error": "Couldn't find your user; please contact an admin at beta@terramango.com", "email": null, "phone_type": null});
+		}
+		else {
+			const email = result.rows[0].email;
+			const phoneType = result.rows[0].phone_type;
+			res.render("update", {"noError": true, "email": email, "phone_type": phoneType});
+		}
+	});
+});
+
+router.post("/update", function(req, res, next) {
+	var ref = req.body.ref;
+	const id = decodePrivate(ref);
+	var email = req.body.email;
+	var phone = req.body.phone_type;
+	var date_updated = Date.now().toLocaleString('en-US');
+
+	const queryText = "UPDATE signup SET email=$1, phone_type=$2, date_updated=$3 WHERE id=$4";
+	const queryValues = [email, phone, date_updated, id];
+
+	pg.client.query(queryText, queryValues, (err, result) => {
+		if (err) {
+			console.error(err);
+			res.send("Error");
+		}
+		else {
+			res.send("Success");
+		}
+	});
+});
+
 router.get("/", function(req, res) {
 	res.render("index", {formError: null});
 });

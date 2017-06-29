@@ -86,6 +86,10 @@ p {
   color: red;
   background: rgba(0, 0, 0, 0.4);
 }
+.fontGreen {
+  color: #27e512;
+  background: rgba(0, 0, 0, 0.4);
+}
 .blueBorder:focus{
   /*border:10px solid #66afe9;
   outline: 20px;*/
