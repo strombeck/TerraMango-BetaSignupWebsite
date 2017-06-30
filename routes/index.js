@@ -38,6 +38,10 @@ router.get("/R:ref", function(req, res, next) {
 router.get("/testKickstarter", function(req, res) {
 	let currentTime = new Date( new Date().getTime() + desiredTimezoneOffset * 3600 * 1000);
 
+	console.log("CurrentTime: " + JSON.stringify(currentTime));
+	console.log("FirstTime: " + JSON.stringify(dateToCloseBetaSignupTest));
+	console.log("SecondTime: " + JSON.stringify(dateToAddKickstarterLinkTest));
+
 	let showKickstarterLink = currentTime >= dateToAddKickstarterLinkTest;
 	if(currentTime >= dateToCloseBetaSignupTest) {
 		res.render("index_closed_signup", {"showKickstarterLink": showKickstarterLink});
