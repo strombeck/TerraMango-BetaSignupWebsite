@@ -9,19 +9,12 @@
 						<h1 class="brand-heading">Terra Mango</h1>
 						<h2>A Location-Based Strategy Game</h2>
 
-						<div id="kickstarterIcon" class="row">
-							{{#ifCond showKickstarterLink "===" true}}
-								<a href="/kickstarter" class="kickstarter"><img class="kickstarter-image" src="/images/kickstarter-live.png" alt="Kickstarter"></a>
-							{{/ifCond}}
-							{{#ifCond showKickstarterLink "===" false}}
-								<img class="kickstarter-image" src="/images/kickstarter.png" alt="Kickstarter">
-							{{/ifCond}}
+						<div id="amaDescription" class="row">
+							<h3 class="redditLink">Reddit AMA (Ask Me Anything) starts at 9:00AM EDT<br>on Reddit at <a href="/AMA">/r/Gaming</a></h3>
 						</div>
-						{{#ifCond showKickstarterLink "===" false}}
-							<div class="row">
-								<h3 id="countdown"></h3>
-							</div>
-						{{/ifCond}}
+						<div class="row">
+							<h3 id="countdown"></h3>
+						</div>
 
 						<div class="row">
 							<iframe class="youtube-video" src="https://www.youtube.com/embed/l9u4WDvMc10" frameborder="0" allowfullscreen></iframe>
@@ -63,7 +56,7 @@
 </header>
 <script type="text/javascript">
 	function pad(num, size){ return ('000000000' + num).substr(-size); }
-	let launchTime = 1498914000000;
+	let launchTime = 1498914060000;
 
 	let reachedLaunch = false;
 	window.setInterval(function() {
@@ -72,15 +65,15 @@
 		if(deltaTime <= 0 && !reachedLaunch) {
 			reachedLaunch = true;
 			$("#countdown").hide();
-			$(".kickstarter-image").remove();
-			$("#kickstarterIcon").append("<a href=\"/kickstarter\" class=\"kickstarter\"><img class=\"kickstarter-image\" src=\"/images/kickstarter-live.png\" alt=\"Kickstarter\"></a>");
+			$(".redditLink").remove();
+			$("#amaDescription").append("<h3>Reddit AMA (Ask Me Anything) has started!<br>Check it out on Reddit at <a href=\"/AMA\">/r/Gaming</a></h3>");
 		}
 		else {
 			let deltaHours = Math.floor(deltaTime / 1000 / 60 / 60);
 			let deltaMinutes = Math.floor((deltaTime - deltaHours * 3600 * 1000) / 1000 / 60);
 			let deltaSeconds = Math.floor((deltaTime - deltaHours * 3600 * 1000 - deltaMinutes * 60 * 1000) / 1000);
 
-			$("#countdown").text(pad(deltaHours, 2) + " Hours, " + pad(deltaMinutes, 2) + " Minutes, " + pad(deltaSeconds, 2) + " Seconds Until Launch!");
+			$("#countdown").text(pad(deltaHours, 2) + " Hours, " + pad(deltaMinutes, 2) + " Minutes, " + pad(deltaSeconds, 2) + " Seconds Until AMA Starts!");
 		}
 	}, 1000);
 </script>
