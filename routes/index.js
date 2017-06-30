@@ -258,36 +258,36 @@ router.post('/%F0%9F%91%BD',function(req,res) {
 					pg.done();
 					console.log("Made it to the database");
 					const encoded = encodeId(+result.rows[0].id);
-					pmClient.sendEmailWithTemplate({
-						"From": "beta@terramango.com",
-						"TemplateId": 1792042,
-						"To": email,
-						"TemplateModel": {
-							"publicRef": encoded.public,
-							"privateRef": encoded.private,
-							"subjectPrefix": isUSA ? "You're In! " : "",
-							"inviteTimeline": isUSA ? "You can expect your invite link in just a few weeks." : "We're launching one country at a time; we'll send your invite link when the beta opens in your country."
-						},
-						"InlineCss": true
-					}, function(error, result) {
-						if(error) {
-							console.log(error);
-							if (!jsEnabled) {
-								res.render('index', {formError: 'We\'re having server problems, please try again in a few minutes', hasError: true});
-							}
-							else {
-								res.send("We\'re having server issues, please try again in a few minutes.");
-							}
-						}
-						else {
+					// pmClient.sendEmailWithTemplate({
+					// 	"From": "beta@terramango.com",
+					// 	"TemplateId": 1792042,
+					// 	"To": email,
+					// 	"TemplateModel": {
+					// 		"publicRef": encoded.public,
+					// 		"privateRef": encoded.private,
+					// 		"subjectPrefix": isUSA ? "You're In! " : "",
+					// 		"inviteTimeline": isUSA ? "You can expect your invite link in just a few weeks." : "We're launching one country at a time; we'll send your invite link when the beta opens in your country."
+					// 	},
+					// 	"InlineCss": true
+					// }, function(error, result) {
+						// if(error) {
+						// 	console.log(error);
+						// 	if (!jsEnabled) {
+						// 		res.render('index', {formError: 'We\'re having server problems, please try again in a few minutes', hasError: true});
+						// 	}
+						// 	else {
+						// 		res.send("We\'re having server issues, please try again in a few minutes.");
+						// 	}
+						// }
+						// else {
 							if (!jsEnabled) {
 								res.render('index', {success: 'WooHoo! Form submitted and email sent', hasSuccess: true});
 							} 
 							else {
 								res.send("Success"); 
 							}
-						}
-					});
+						//}
+					//});
 				}
 			});
 		});
