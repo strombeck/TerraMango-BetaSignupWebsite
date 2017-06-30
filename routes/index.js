@@ -10,12 +10,11 @@ var postmark = require("postmark");
 var pmClient = new postmark.Client(process.env.POSTMARK_KEY);
 var validCountryCodes = "AD,AE,AF,AG,AI,AL,AM,AO,AQ,AR,AS,AT,AU,AW,AZ,BA,BB,BD,BE,BF,BG,BH,BI,BJ,BL,BM,BN,BO,BR,BS,BT,BV,BW,BY,BZ,CA,CC,CD,CF,CG,CH,CI,CK,CL,CM,CN,CO,CR,CU,CV,CW,CX,CY,CZ,DE,DJ,DK,DM,DO,DZ,EC,EE,EG,EH,ER,ES,ET,FI,FJ,FK,FM,FO,FR,FX,GA,GB,GD,GE,GF,GG,GH,GI,GL,GM,GN,GP,GQ,GR,GS,GT,GU,GW,GY,HK,HM,HN,HR,HT,HU,ID,IE,IL,IM,IN,IO,IQ,IR,IS,IT,JE,JM,JO,JP,KE,KG,KH,KI,KM,KN,KP,KR,KW,KY,KZ,LA,LB,LC,LI,LK,LR,LS,LT,LU,LV,LY,MA,MC,MD,ME,MF,MG,MH,MK,ML,MM,MN,MO,MP,MQ,MR,MS,MT,MU,MV,MW,MX,MY,MZ,NA,NC,NE,NF,NG,NI,NL,NO,NP,NR,NU,NZ,OM,PA,PE,PF,PG,PH,PK,PL,PM,PN,PR,PS,PS,PT,PW,PY,QA,RE,RO,RS,RU,RW,SA,SB,SC,SD,SE,SG,SH,SI,SJ,SK,SL,SM,SN,SO,SR,SS,ST,SV,SX,SY,SZ,TC,TD,TF,TG,TH,TJ,TK,TL,TM,TN,TO,TR,TT,TV,TW,TZ,UA,UG,UM,US,UY,UZ,VA,VC,VE,VG,VI,VN,VU,WF,WS,XK,YE,YT,ZA,ZM,ZW".split(",");
 
-let desiredTimezoneOffset = -4; // EDT
-let dateToCloseBetaSignup = new Date( new Date(2017, 6, 1, 0, 0, 0, 0).getTime() + desiredTimezoneOffset * 3600 * 1000);
-let dateToAddKickstarterLink = new Date( new Date(2017, 6, 1, 8, 59, 30, 0).getTime() + desiredTimezoneOffset * 3600 * 1000);
+let msUTCToCloseBetaSignup = 1498881600000; // 12:00:00AM EDT July 1
+let msUTCToAddKickstarterLink = 1498913970000; // 8:59:30AM EDT July 1
 
-let dateToCloseBetaSignupTest = new Date( new Date(2017, 5, 30, 10, 55, 0, 0).getTime() + desiredTimezoneOffset * 3600 * 1000);
-let dateToAddKickstarterLinkTest = new Date( new Date(2017, 5, 30, 10, 56, 30, 0).getTime() + desiredTimezoneOffset * 3600 * 1000);
+let msUTCToCloseBetaSignupTest = 1498837380000; //1143
+let msUTCToAddKickstarterLinkTest = 1498837440000; //1144
 
 function encodeId(id){
 	return {
@@ -36,15 +35,14 @@ router.get("/R:ref", function(req, res, next) {
 });
 
 router.get("/testKickstarter", function(req, res) {
-	let currentTime = new Date( new Date().getTime() + desiredTimezoneOffset * 3600 * 1000);
+	let currentTime = new Date().getTime();
 
-	console.log("ServerTime: " + JSON.stringify(new Date()));
 	console.log("CurrentTime: " + JSON.stringify(currentTime));
-	console.log("FirstTime: " + JSON.stringify(dateToCloseBetaSignupTest));
-	console.log("SecondTime: " + JSON.stringify(dateToAddKickstarterLinkTest));
+	console.log("FirstTime: " + JSON.stringify(msUTCToCloseBetaSignupTest));
+	console.log("SecondTime: " + JSON.stringify(msUTCToAddKickstarterLinkTest));
 
-	let showKickstarterLink = currentTime >= dateToAddKickstarterLinkTest;
-	if(currentTime >= dateToCloseBetaSignupTest) {
+	let showKickstarterLink = currentTime >= msUTCToAddKickstarterLinkTest;
+	if(currentTime >= msUTCToCloseBetaSignupTest) {
 		res.render("index_closed_signup", {"showKickstarterLink": showKickstarterLink});
 	}
 	else {
@@ -53,14 +51,15 @@ router.get("/testKickstarter", function(req, res) {
 });
 
 router.get("/", function(req, res) {
-	let currentTime = new Date( new Date().getTime() + desiredTimezoneOffset * 3600 * 1000);
+	res.render("index", {formError: null});
+	return;
+	let currentTime = new Date( new Date().getTime() + timezoneOffset * 3600 * 1000);
 
 	let showKickstarterLink = currentTime >= dateToAddKickstarterLink;
 	if(currentTime >= dateToCloseBetaSignup) {
 		res.render("index_closed_signup", {"showKickstarterLink": showKickstarterLink});
 	}
 	else {
-		res.render("index", {formError: null});
 	}
 });
 router.get("/referrals/:ref", function(req, res){
@@ -105,7 +104,9 @@ router.get("/referrals/:ref", function(req, res){
 })
 
 router.get('/%F0%9F%91%BD', function(req, res) {
-	let currentTime = new Date( new Date().getTime() + desiredTimezoneOffset * 3600 * 1000);
+	res.render("index", {formError: null});
+	return;
+	let currentTime = new Date( new Date().getTime() + timezoneOffset * 3600 * 1000);
 
 	let showKickstarterLink = currentTime >= dateToAddKickstarterLink;
 	if(currentTime >= dateToCloseBetaSignup) {
@@ -117,13 +118,13 @@ router.get('/%F0%9F%91%BD', function(req, res) {
 });
 
 router.post('/%F0%9F%91%BD',function(req,res) {
-	let currentTime = new Date( new Date().getTime() + desiredTimezoneOffset * 3600 * 1000);
+	/*let currentTime = new Date( new Date().getTime() + timezoneOffset * 3600 * 1000);
 
 	let showKickstarterLink = currentTime >= dateToAddKickstarterLink;
 	if(currentTime >= dateToCloseBetaSignup) {
 		res.render("index_closed_signup", {"showKickstarterLink": showKickstarterLink});
 		return;
-	}
+	}*/
 
 	var email = req.body.email;
 	var ref = req.body.ref || null;
