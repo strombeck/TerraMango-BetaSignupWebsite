@@ -51,17 +51,25 @@ router.get("/testKickstarter", function(req, res) {
 });
 
 router.get("/", function(req, res) {
-	res.render("index", {formError: null});
-	return;
-	let currentTime = new Date( new Date().getTime() + timezoneOffset * 3600 * 1000);
+	let currentTime = new Date().getTime();
 
-	let showKickstarterLink = currentTime >= dateToAddKickstarterLink;
-	if(currentTime >= dateToCloseBetaSignup) {
+	let showKickstarterLink = currentTime >= msUTCToAddKickstarterLink;
+	if(currentTime >= msUTCToCloseBetaSignup) {
 		res.render("index_closed_signup", {"showKickstarterLink": showKickstarterLink});
 	}
 	else {
+		res.render("index", {formError: null});
 	}
 });
+
+router.get("/kickstarter", function(req, res) {
+	res.render("index_closed_signup", {"showKickstarterLink": false});
+});
+
+router.get("/AMA", function(req, res) {
+	res.render("index_ama");
+});
+
 router.get("/referrals/:ref", function(req, res){
 	if(!req.params.ref) {
 		res.end("Error: No referrer id provided!");
@@ -104,12 +112,10 @@ router.get("/referrals/:ref", function(req, res){
 })
 
 router.get('/%F0%9F%91%BD', function(req, res) {
-	res.render("index", {formError: null});
-	return;
-	let currentTime = new Date( new Date().getTime() + timezoneOffset * 3600 * 1000);
+	let currentTime = new Date().getTime();
 
-	let showKickstarterLink = currentTime >= dateToAddKickstarterLink;
-	if(currentTime >= dateToCloseBetaSignup) {
+	let showKickstarterLink = currentTime >= msUTCToAddKickstarterLink;
+	if(currentTime >= msUTCToCloseBetaSignup) {
 		res.render("index_closed_signup", {"showKickstarterLink": showKickstarterLink});
 	}
 	else {
@@ -118,13 +124,13 @@ router.get('/%F0%9F%91%BD', function(req, res) {
 });
 
 router.post('/%F0%9F%91%BD',function(req,res) {
-	/*let currentTime = new Date( new Date().getTime() + timezoneOffset * 3600 * 1000);
+	let currentTime = new Date().getTime();
 
-	let showKickstarterLink = currentTime >= dateToAddKickstarterLink;
-	if(currentTime >= dateToCloseBetaSignup) {
+	let showKickstarterLink = currentTime >= msUTCToAddKickstarterLink;
+	if(currentTime >= msUTCToCloseBetaSignup) {
 		res.render("index_closed_signup", {"showKickstarterLink": showKickstarterLink});
 		return;
-	}*/
+	}
 
 	var email = req.body.email;
 	var ref = req.body.ref || null;
