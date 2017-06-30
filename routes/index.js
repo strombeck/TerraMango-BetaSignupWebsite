@@ -14,6 +14,9 @@ let desiredTimezoneOffset = -4; // EDT
 let dateToCloseBetaSignup = new Date( new Date(2017, 6, 1, 0, 0, 0, 0).getTime() + desiredTimezoneOffset * 3600 * 1000);
 let dateToAddKickstarterLink = new Date( new Date(2017, 6, 1, 8, 59, 30, 0).getTime() + desiredTimezoneOffset * 3600 * 1000);
 
+let dateToCloseBetaSignupTest = new Date( new Date(2017, 5, 30, 10, 55, 0, 0).getTime() + desiredTimezoneOffset * 3600 * 1000);
+let dateToAddKickstarterLinkTest = new Date( new Date(2017, 5, 30, 10, 56, 30, 0).getTime() + desiredTimezoneOffset * 3600 * 1000);
+
 function encodeId(id){
 	return {
 		"public": Base62.encode(+id * 1111),
@@ -30,6 +33,18 @@ function decodePublic(ref) {
 router.get("/R:ref", function(req, res, next) {
 	var ref = req.params.ref;
 	res.render("index", {formError: null, referrer: ref});
+});
+
+router.get("/testKickstarter", function(req, res) {
+	let currentTime = new Date( new Date().getTime() + desiredTimezoneOffset * 3600 * 1000);
+
+	let showKickstarterLink = currentTime >= dateToAddKickstarterLinkTest;
+	if(currentTime >= dateToCloseBetaSignupTest) {
+		res.render("index_closed_signup", {"showKickstarterLink": showKickstarterLink});
+	}
+	else {
+		res.render("index", {formError: null});
+	}
 });
 
 router.get("/", function(req, res) {
