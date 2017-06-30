@@ -38,6 +38,7 @@ router.get("/R:ref", function(req, res, next) {
 router.get("/testKickstarter", function(req, res) {
 	let currentTime = new Date( new Date().getTime() + desiredTimezoneOffset * 3600 * 1000);
 
+	console.log("ServerTime: " + JSON.stringify(new Date()));
 	console.log("CurrentTime: " + JSON.stringify(currentTime));
 	console.log("FirstTime: " + JSON.stringify(dateToCloseBetaSignupTest));
 	console.log("SecondTime: " + JSON.stringify(dateToAddKickstarterLinkTest));
