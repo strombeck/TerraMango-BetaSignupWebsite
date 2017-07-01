@@ -10,7 +10,7 @@
 						<h2>A Location-Based Strategy Game</h2>
 
 						<div id="amaDescription" class="row">
-							<h3 class="redditLink">Reddit AMA (Ask Me Anything) starts at 9:00AM EDT<br>on Reddit at <a href="https://reddit.com/r/Gaming">/r/Gaming</a></h3>
+							<h3 class="redditLink">Our big Reddit post starts at 9:00AM EDT<br> at <a href="https://reddit.com/r/gaming/">/r/Gaming</a></h3>
 						</div>
 						<div class="row">
 							<h3 id="countdown"></h3>
@@ -46,10 +46,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row" style="font-family:sans-serif">
 				<i class="fa fa-phone footer-icon"></i><a href="tel:+12543133762">(254) 313-3762</a><br>
 				<i class="fa fa-envelope footer-icon"></i><a href="mailto:contact@terramango.com">contact@terramango.com</a><br>
-				<i class="fa fa-copyright footer-icon"></i>Breadboard, LLC 2017<br>
+				<i class="fa fa-copyright footer-icon"></i>Terra Mango, LLC 2017<br>
 			</div>
 		</div>
 	</div>
@@ -66,7 +66,7 @@
 			reachedLaunch = true;
 			$("#countdown").hide();
 			$(".redditLink").remove();
-			$("#amaDescription").append("<h3>Reddit AMA (Ask Me Anything) has started!<br>Check it out on Reddit at <a href=\"/AMA\">/r/Gaming</a></h3>");
+			$("#amaDescription").append("<h3>Our big Reddit post has started <br>Check it out on Reddit at <a href=\"/NotAnAMA\">/r/Gaming</a></h3>");
 		}
 		else {
 			let deltaHours = Math.floor(deltaTime / 1000 / 60 / 60);
