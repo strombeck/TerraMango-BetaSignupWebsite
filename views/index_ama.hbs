@@ -73,7 +73,7 @@
 			let deltaMinutes = Math.floor((deltaTime - deltaHours * 3600 * 1000) / 1000 / 60);
 			let deltaSeconds = Math.floor((deltaTime - deltaHours * 3600 * 1000 - deltaMinutes * 60 * 1000) / 1000);
 
-			$("#countdown").text(pad(deltaHours, 2) + " Hours, " + pad(deltaMinutes, 2) + " Minutes, " + pad(deltaSeconds, 2) + " Seconds Until AMA Starts!");
+			$("#countdown").text(pad(deltaHours, 2) + " Hours, " + pad(deltaMinutes, 2) + " Minutes, " + pad(deltaSeconds, 2) + " Seconds Until the Post Starts!");
 		}
 	}, 1000);
 </script>
