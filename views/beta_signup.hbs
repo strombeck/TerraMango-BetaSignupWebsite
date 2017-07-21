@@ -1,0 +1,111 @@
+{{!--Intro Header--}}
+<header class="intro">
+	<div class="intro-body">
+		<div class="container">
+			<div class="row">
+				<div id="mobile" class="col-md-12">
+					<div>
+						<img src="/images/icon.png" width="200" hegith="200">
+						<h1 class="brand-heading">Terra Mango</h1>
+						<h2>A Location-Based Strategy Game</h2>
+						<div class="intro-text1 form-fonts {{#hasSuccess}}hidden{{/hasSuccess}}">
+							Enter your info below to get beta access.
+						</div>
+
+						<!-- Begin MailChimp Signup Form -->
+						<div id="mc_embed_signup">
+							<form action="//terramango.us15.list-manage.com/subscribe/post?u=4d4935d695b535360b59899af&amp;id=39903dd4d1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+								<div id="mc_embed_signup_scroll">
+									<div class="form-group">
+										<div class="col-sm-6 col-md-offset-3">
+											<div class="mc-field-group">
+												<input type="email" class="required email form-control form-fonts blueBorder" id="mce-EMAIL" name="EMAIL" placeholder="example@domain.com" value="" required>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-6 col-md-offset-3">
+											<div class="mc-field-group input-group" style="margin: auto;">
+												<div class="switch">
+													<div class="quality">
+														<div style="display: inline-block;">
+															<input type="radio" value="iOS" name="PHONE" id="mce-PHONE-1" required>
+															<label class="radio-label" for="mce-PHONE-1">
+																<h3>iOS</h3>
+															</label>
+														</div>
+														<div style="display: inline-block;">
+															<input type="radio" value="Android" name="PHONE" id="mce-PHONE-0" required>
+															<label class="radio-label" for="mce-PHONE-0">
+																<h3>Android</h3>
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="mce-responses" class="clear form-fonts into-text1">
+										<div class="response" id="mce-error-response" style="display:none"></div>
+										<div class="response" id="mce-success-response" style="display:none"></div>
+									</div>
+									<div style="position: absolute; left: -5000px;" aria-hidden="true">
+										<input type="text" name="b_4d4935d695b535360b59899af_39903dd4d1" tabindex="-1" value="">
+									</div>
+									<div class="clear">
+										<div class="form-group">
+											<div>
+												<button type="submit" id="mc-embedded-subscribe" name="subscribe" class="btn btn-invite btn-lg blueBorder button">Get Access to the Closed-Beta</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="h3 text-center transBlackOverlay form-fonts {{^hasSuccess}}hidden{{/hasSuccess}}" id="msgSubmit">
+							Will you be selected? Maybe. We'll let you know if you get picked for the super exclusive closed beta!
+							<a style="font-size:16px;padding-top: 1em;display: block;color: #80a3c5;text-decoration: underline;" href="/">Back to the home page</a>
+						</div>
+						<div class="h4 text-center fontRed form-fonts {{^hasError}}hidden{{/hasError}}" id="itFailed">
+							{{#hasError}}
+								{{{formError}}}
+							{{/hasError}}
+							{{^hasError}}
+								Could not establish a connection with the server. Please try again later. <br>
+								Click the Twitter birdie to tweet this to us! <a href="https://twitter.com/intent/tweet?text=Hey%2C%20%40TerraMango%21%20I%27m%20having%20an%20issue%20signing%20up%20for%20the%20beta%21%20Error%20code%2000000010101010000000000%2C%20oh%20no%21&amp;source=clicktotweet&amp;related=clicktotweet" target="_blank"><img src="/images/twitter.png" width="60px" height="60px"></a>
+							{{/hasError}}
+						</div>
+
+						<div id="about" class="col-lg-7 offset">
+							<hr/>
+							<h2>About Terra Mango</h2>
+							<div class="about-container">
+								<div class="description">Will you defend your race from the intrusion of your enemies as a Human? Will you exact revenge on your creators as the IO? Or will you conquer the blue marble for the honor of the Aurayu? Collect resources, conquer enemy territory, and build towers to ensure victory for your race. Be the first to claim your neighborhood, town, and city!</div>
+								<div style="font-weight:bold">FEATURES</div>
+								<ul>
+									<li>Choose your race. Are you a Human, an IO, or an Aurayu?</li>
+									<li>Build combat, research, and resource towers to claim real world territory for your race and to grow your empire.</li>
+									<li>Deploy troops in the real world to destroy and conquer enemy territory.</li>
+									<li>Collect gold, ore, energy, and IPG in the real world.</li>
+									<li>Did we mention it’s in the real world?</li>
+									<li>Team up with other players to defeat your enemies together.</li>
+									<li>Earn XP and level up to expand available tower and troop types.</li>
+								</ul>
+							</div>
+						</div>
+						<img src="/images/characters.jpg" class="character-banner">
+						<div class="col-md-12">
+							<p class="developedBy form-fonts">Developed by </p><a href="https://breadboard.ai"><img class="imgPadding" src="/images/bb-logo-1x.png" srcset="/images/bb-logo-1x.png 1x, /images/bb-logo-2x.png 2x" width="304px" height="64px"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="font-family:sans-serif">
+				<i class="fa fa-phone footer-icon"></i><a href="tel:+12543133762">(254) 313-3762</a><br>
+				<i class="fa fa-envelope footer-icon"></i><a href="mailto:contact@terramango.com">contact@terramango.com</a><br>
+				<i class="fa fa-copyright footer-icon"></i>Terra Mango, LLC 2017<br>
+			</div>
+		</div>
+	</div>
+</header>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='PHONE';ftypes[1]='radio';}(jQuery));var $mcj = jQuery.noConflict(true);</script>

@@ -69,6 +69,7 @@ router.get("/kickstarter", function(req, res) {
 router.get("/AMA", function(req, res) {
 	res.render("index_ama");
 });
+
 router.get("/NotAnAMA", function(req, res) {
 	res.render("index_ama");
 });
@@ -124,6 +125,10 @@ router.get('/%F0%9F%91%BD', function(req, res) {
 	else {
 		res.render("index", {formError: null});
 	}
+});
+
+router.get("/p1beta", function(req, res) {
+	res.render("beta_signup");
 });
 
 router.post('/%F0%9F%91%BD',function(req,res) {

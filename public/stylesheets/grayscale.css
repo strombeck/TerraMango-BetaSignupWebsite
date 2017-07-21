@@ -388,6 +388,7 @@ html {
   padding:0;
 }
 #form-submit,
+#mc-embedded-subscribe,
 .col-sm-6{
   float:none;
   width:50%;
@@ -409,4 +410,10 @@ html {
 }
 .footer-icon {
   margin-right: 5px;
+}
+.response {
+  margin-bottom: 20px;
+  background: rgba(0,0,0,.1);
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
