@@ -29,11 +29,6 @@ function decodePublic(ref) {
 	return Math.round(Base62.decode(ref) / 1111);
 }
 
-router.get("/R:ref", function(req, res, next) {
-	var ref = req.params.ref;
-	res.render("index", {formError: null, referrer: ref});
-});
-
 router.get("/testKickstarter", function(req, res) {
 	let currentTime = new Date().getTime();
 
