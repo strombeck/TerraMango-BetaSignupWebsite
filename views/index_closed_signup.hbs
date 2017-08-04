@@ -9,20 +9,6 @@
 						<h1 class="brand-heading">Terra Mango</h1>
 						<h2>A Location-Based Strategy Game</h2>
 						
-						<div id="kickstarterIcon" class="row">
-							{{#ifCond showKickstarterLink "===" true}}
-								<a href="/kickstarter" class="kickstarter"><img class="kickstarter-image" src="/images/kickstarter-live.png" alt="Kickstarter"></a>
-							{{/ifCond}}
-							{{#ifCond showKickstarterLink "===" false}}
-								<img class="kickstarter-image" src="/images/kickstarter.png" alt="Kickstarter">
-							{{/ifCond}}
-						</div>
-						{{#ifCond showKickstarterLink "===" false}}
-							<div class="row" style="margin:0;padding:0;">
-								<h3 id="countdown"  style="margin:0;padding:0;"></h3>
-							</div>
-						{{/ifCond}}
-
 						<div class="row">
 							<iframe class="youtube-video" src="https://www.youtube.com/embed/OHHqCrPx0WM" frameborder="0" allowfullscreen></iframe>
 							
